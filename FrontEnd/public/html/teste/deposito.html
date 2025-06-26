@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Exemplo de requisição HTTP GET com JavaScript puro</title>
+</head>
+
+<body>
+
+    <input type="text" id="url" style="width:300px;" value="">
+    <button onclick="fazerRequisicao();">Fazer requisição</button>
+    <hr />
+    <div id="resposta"></div>
+
+    <script>
+        let oi = 0
+        function fazerRequisicao() {
+            var url = document.getElementById('url').value;
+
+            // Usando um proxy para contornar CORS temporariamente
+            var proxy = 'http://127.0.0.1:5501/html/ex.txt?url=';
+            var xhttp = new XMLHttpRequest();
+
+            // Abre a requisição com o proxy prefixando a URL original
+            xhttp.open("GET", proxy + url, true);
+
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    document.getElementById("resposta").innerHTML = xhttp.responseText;
+                    oi = oi + 1
+                    console.log("foi", oi)
+                }
+            };
+
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>

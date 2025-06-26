@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de GET e criação de arquivo</title>
+</head>
+
+<body>
+
+    <button onclick="fazerGet()">Enviar GET e Simular Criação de Arquivo</button>
+
+    <script>
+        function fazerGet() {
+            // JSON que será enviado
+            let jsonMarcao = {
+                "arquivoTitulo": "marcaozitos.json",
+                "nome": "Marcao",
+                "idade": 56
+            };
+
+            // Cria o XMLHttpRequest
+            var xhttp = new XMLHttpRequest();
+
+            // Monta a URL com os dados do JSON como parâmetros (simulando o envio)
+            var url = "http://127.0.0.1:5501/html/?" +
+                "arquivoTitulo=" + encodeURIComponent(jsonMarcao.arquivoTitulo) +
+                "&nome=" + encodeURIComponent(jsonMarcao.nome) +
+                "&idade=" + encodeURIComponent(jsonMarcao.idade);
+
+            // Abre uma requisição GET para a URL modificada
+            xhttp.open("GET", url, true);
+
+            // Quando a requisição for concluída
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState === 4 && xhttp.status === 200) {
+                    // Exibir resposta no console
+                    console.log("Resposta do servidor: ", xhttp.responseText);
+
+                    // Simula a criação de arquivo localmente no navegador
+                    criarArquivoLocal(jsonMarcao);
+                }
+            };
+
+            // Envia a requisição (GET)
+            xhttp.send();
+        }
+
+        function criarArquivoLocal(jsonData) {
+            // Converte o JSON em string
+            let dataStr = JSON.stringify(jsonData, null, 2);
+            let blob = new Blob([dataStr], { type: "application/json" });
+
+            // Cria um link para download
+            let link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = jsonData.arquivoTitulo;
+
+            // Simula o clique para download
+            document.body.appendChild(link);
+            link.click();
+
+            // Remove o link após o download
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de POST e criação de arquivo</title>
+</head>
+
+<body>
+
+    <button onclick="fazerPost()">Enviar POST e Simular Criação de Arquivo</button>
+
+    <script>
+        function fazerPost() {
+            // JSON que será enviado
+            let jsonMarcao = {
+                "arquivoTitulo": "marcaozitos.json",
+                "nome": "Marcao",
+                "idade": 56
+            };
+
+            // Cria o XMLHttpRequest
+            var xhttp = new XMLHttpRequest();
+
+            // Abre uma requisição POST para a URL especificada
+            xhttp.open("POST", "http://127.0.0.1:5501/html/", true);
+            xhttp.setRequestHeader("Content-Type", "application/json");
+
+            // Quando a requisição for concluída
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState === 4 && xhttp.status === 200) {
+                    // Exibir resposta no console
+                    console.log("Resposta do servidor: ", xhttp.responseText);
+
+                    // Simula a criação de arquivo localmente no navegador
+                    criarArquivoLocal(jsonMarcao);
+                }
+            };
+
+            // Envia o JSON no corpo da requisição
+
+            try {
+
+                xhttp.send(JSON.stringify(jsonMarcao));
+            } catch (error) {
+
+                console("cuccucucu  ", error)
+            }
+        }
+
+        function criarArquivoLocal(jsonData) {
+            // Converte o JSON em string
+            let dataStr = JSON.stringify(jsonData, null, 2);
+            let blob = new Blob([dataStr], { type: "application/json" });
+
+            // Cria um link para download
+            let link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = jsonData.arquivoTitulo;
+
+            // Simula o clique para download
+            document.body.appendChild(link);
+            link.click();
+
+            // Remove o link após o download
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+
+</html> -->

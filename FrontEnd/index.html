@@ -1,0 +1,391 @@
+<!-- http://127.0.0.1:5501/FrontEnd/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="shortcut icon"
+            href="public/images/chadideia3.png"
+            type="image/x-icon"
+        />
+        <title>MarcaoBook</title>
+        <link rel="stylesheet" href="public/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="public/bootstrap/css/bootstrap-grid.css" />
+        <!-- <link rel="stylesheet" href="public/css/index.css" /> -->
+        <link rel="stylesheet" href="public/css/redeSocial.css" />
+        <link rel="stylesheet" href="public/css/aside.css" />
+        <link rel="stylesheet" href="public/css/card.css" />
+        <link rel="stylesheet" href="public/css/footer.css" />
+        <link rel="stylesheet" href="public/css/nav.css" />
+        <link rel="stylesheet" href="public/css/others/toasts.css" />
+    </head>
+
+    <body>
+        <nav class="tabelaCima navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid fundoNavBar">
+                <a class="navbar-brand" href="/FrontEnd/">MarcaoBook</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    class="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                >
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="/FrontEnd/#IdTeste"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="../FrontEnd/html/teste.html"
+                                >Area de testes</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Catalogo</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Junte-se a Nós!
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <a class="dropdown-item" href="#">Login</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Cadastrar</a
+                                    >
+                                </li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Trocar de conta</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input
+                            class="form-control me-2"
+                            type="search"
+                            placeholder="Search"
+                            aria-label="Search"
+                        />
+                        <button class="btn btn-outline-success" type="submit">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <main class="tabelaCentro">
+            <div class="tabelaPosts">
+                <h1 class="textoPreto centroTexto">MarcaoBook</h1>
+                <hr />
+                <div class="caixaPost margemVertical">
+                    <div class="caixaUserImg centroCelularBlockPc">
+                        <div class="grupoImagemENickUser centroPcBlockCelular">
+                            <div class="posicionaTabelaCimaUserFoto centro">
+                                <img
+                                    src="public/images/redeSocial/User_icon_2.png"
+                                    class="imgTabelaEsquerda"
+                                    title="Perfil do User"
+                                    alt="Perfil do User"
+                                />
+                            </div>
+                            <div class="posicionaTabelaCimaUserNome">
+                                User: lucas.marcao
+                            </div>
+                        </div>
+
+                        <div class="grupoTabelaCimabotoes">
+                            <div class="centro">
+                                <div class="btn botaoCurtir">curtir</div>
+                                <div class="btn botaoSeguir">seguir</div>
+                            </div>
+                            <div class="centro">
+                                <div class="btn botaoComentar">comentar</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="caixaPostTexto">
+                        <div class="centro">X pessoas curtiram</div>
+                        <div class="centro">N Comentários</div>
+                        <div class="divisoriacaixaPostTexto"></div>
+                        <div class="caixaPostTextoJustificado">
+                            User Diz: 0123456789 0123456789 0123456789
+                            0123456789 0123456789 0123456789 0123456789
+                            0123456789 0123456789 100chars
+                        </div>
+                    </div>
+                    <div class="caixaConteudoPost centroCelularBlockPc">
+                        <div class="centro margemVertical tamanhoComeImgPost">
+                            <img
+                                src="public/images/redeSocial/User_icon_2.png"
+                                class="imgDaPostagem"
+                                title="Perfil do User"
+                                alt="Perfil do User"
+                            />
+                        </div>
+                        <form class="tamanhoFlexFormPost" action="">
+                            <div class="centroPcBlockCelular">
+                                <input
+                                    class="inputcomentarioText"
+                                    type="text"
+                                    placeholder="Comente"
+                                    required
+                                />
+                                <button
+                                    type="submit"
+                                    class="btn inputcomentarioBtn"
+                                >
+                                    enviar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- mais posts -->
+
+                <div class="caixaPost margemVertical">
+                    <div class="caixaUserImg centroCelularBlockPc">
+                        <div class="grupoImagemENickUser centroPcBlockCelular">
+                            <div class="posicionaTabelaCimaUserFoto centro">
+                                <img
+                                    src="public/images/redeSocial/User_icon_2.png"
+                                    class="imgTabelaEsquerda"
+                                    title="Perfil do User"
+                                    alt="Perfil do User"
+                                />
+                            </div>
+                            <div class="posicionaTabelaCimaUserNome">
+                                User: lucas.marcao
+                            </div>
+                        </div>
+
+                        <div class="grupoTabelaCimabotoes">
+                            <div class="centro">
+                                <div class="btn botaoCurtir">curtir</div>
+                                <div class="btn botaoSeguir">seguir</div>
+                            </div>
+                            <div class="centro">
+                                <div class="btn botaoComentar">comentar</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="caixaPostTexto">
+                        <div class="centro">X pessoas curtiram</div>
+                        <div class="centro">N Comentários</div>
+                        <div class="divisoriacaixaPostTexto"></div>
+                        <div class="caixaPostTextoJustificado">
+                            User Diz: 0123456789 0123456789 0123456789
+                            0123456789 0123456789 0123456789 0123456789
+                            0123456789 0123456789 100chars
+                        </div>
+                    </div>
+                    <div class="caixaConteudoPost centroCelularBlockPc">
+                        <div class="centro margemVertical tamanhoComeImgPost">
+                            <img
+                                src="public/images/redeSocial/User_icon_2.png"
+                                class="imgDaPostagem"
+                                title="Perfil do User"
+                                alt="Perfil do User"
+                            />
+                        </div>
+                        <form class="tamanhoFlexFormPost" action="">
+                            <div class="centroPcBlockCelular">
+                                <input
+                                    class="inputcomentarioText"
+                                    type="text"
+                                    placeholder="Comente"
+                                    required
+                                />
+                                <button
+                                    type="submit"
+                                    class="btn inputcomentarioBtn"
+                                >
+                                    enviar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="caixaPost margemVertical">
+                    <div class="caixaUserImg centroCelularBlockPc">
+                        <div class="grupoImagemENickUser centroPcBlockCelular">
+                            <div class="posicionaTabelaCimaUserFoto centro">
+                                <img
+                                    src="public/images/redeSocial/User_icon_2.png"
+                                    class="imgTabelaEsquerda"
+                                    title="Perfil do User"
+                                    alt="Perfil do User"
+                                />
+                            </div>
+                            <div class="posicionaTabelaCimaUserNome">
+                                User: lucas.marcao
+                            </div>
+                        </div>
+
+                        <div class="grupoTabelaCimabotoes">
+                            <div class="centro">
+                                <div class="btn botaoCurtir">curtir</div>
+                                <div class="btn botaoSeguir">seguir</div>
+                            </div>
+                            <div class="centro">
+                                <div class="btn botaoComentar">comentar</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="caixaPostTexto">
+                        <div class="centro">X pessoas curtiram</div>
+                        <div class="centro">N Comentários</div>
+                        <div class="divisoriacaixaPostTexto"></div>
+                        <div class="caixaPostTextoJustificado">
+                            User Diz: 0123456789 0123456789 0123456789
+                            0123456789 0123456789 0123456789 0123456789
+                            0123456789 0123456789 100chars
+                        </div>
+                    </div>
+                    <div class="caixaConteudoPost centroCelularBlockPc">
+                        <div class="centro margemVertical tamanhoComeImgPost">
+                            <img
+                                src="public/images/redeSocial/User_icon_2.png"
+                                class="imgDaPostagem"
+                                title="Perfil do User"
+                                alt="Perfil do User"
+                            />
+                        </div>
+                        <form class="tamanhoFlexFormPost" action="">
+                            <div class="centroPcBlockCelular">
+                                <input
+                                    class="inputcomentarioText"
+                                    type="text"
+                                    placeholder="Comente"
+                                    required
+                                />
+                                <button
+                                    type="submit"
+                                    class="btn inputcomentarioBtn"
+                                >
+                                    enviar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="tabelaEsquerda">
+            <div class="centro margemVertical">
+                <div class="botaoTabelaEsquerda btn">Mais curtidas</div>
+            </div>
+
+            <div class="centro margemVertical">
+                <div class="botaoTabelaEsquerda btn">
+                    <div class="centro">
+                        <img
+                            src="public/images/redeSocial/User_icon_2.png"
+                            class="imgTabelaEsquerda"
+                            title="Perfil do User"
+                            alt="Perfil do User"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="centro margemVertical">
+                <div class="botaoTabelaEsquerda btn">Topico 1</div>
+            </div>
+
+            <div class="centro margemVertical">
+                <div class="botaoTabelaEsquerda btn">Topico 2</div>
+            </div>
+        </aside>
+
+        <div class="tabelaDireita centro btn btn-success">
+            <div class="centroTexto">
+                <div class="svgMaisPostagens">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-send-plus"
+                        viewBox="0 0 16 16"
+                    >
+                        <path
+                            d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z"
+                        />
+                        <path
+                            d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"
+                        />
+                    </svg>
+                </div>
+                <div class="textoMaisPostagens">Poste Algo.</div>
+            </div>
+        </div>
+
+        <footer class="tabelaBaixo centro">
+            <div class="footerMarcao centro">
+                <div class="btnFooter1 btn">
+                    <img
+                        class="imgFooter"
+                        src="public/images/redeSocial/facebookicon.gif"
+                        title="meu face"
+                        alt="meu face"
+                    />
+                </div>
+                <div class="textoFooter">Site Feito em 2025 UTF</div>
+                <div class="btnFooter2 btn">
+                    <img
+                        class="imgFooter"
+                        src="public/images/redeSocial/zap.gif"
+                        alt="meu zap"
+                        title="meu zap"
+                    />
+                </div>
+            </div>
+        </footer>
+
+        <!-- XxxxxxxXXXX___xxxxxxxxx  -->
+        <script src="public/javascript/main.js"></script>
+        <script src="public/javascript/http.js"></script>
+        <script src="public/javascript/style.js"></script>
+        <script src="public/bootstrap/js/bootstrap.bundle.js"></script>
+        <!-- ESSE NÃO POHA
+     SÓ O BUNDLE (APENAS)
+    <script src="public/bootstrap/js/bootstrap.js"></script> -->
+        <script src="public/javascript/others/toasts.js"></script>
+    </body>
+</html>
