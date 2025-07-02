@@ -1,3 +1,8 @@
+* {
+    /* font-family: Roboto, Lato, Montserrat, Raleway; */
+    font-family: Lato;
+}
+
 body {
     position: relative;
     margin: 0;
@@ -129,7 +134,8 @@ h1 {
 
 .imgTabelaEsquerda {
     width: 50%;
-    background-color: gray;
+    background: gray;
+    color: #e9e9e9;
 }
 
 .botaoTabelaEsquerda {
@@ -142,7 +148,8 @@ h1 {
 
 .botaoTabelaEsquerda:hover {
     transition: 0.8s;
-    background-color: gray;
+    background: gray;
+    color: #e9e9e9;
 }
 
 /* itens dos posts */
@@ -153,6 +160,7 @@ h1 {
     padding: 5px;
     scroll-behavior: auto;
     overflow: auto;
+
     border: #222831 2px solid;
 }
 
@@ -171,6 +179,14 @@ h1 {
     width: 28%;
     height: 28vh;
     left: 1%;
+    scroll-behavior: auto;
+    overflow: auto;
+    border: #222831 2px solid;
+}
+
+.imgUserPerfil {
+    width: 55%;
+    background: gray;
     border: #222831 2px solid;
 }
 
@@ -183,6 +199,8 @@ h1 {
     left: 1%;
     font-size: 12px;
     border: #222831 2px solid;
+    scroll-behavior: auto;
+    overflow: auto;
 }
 
 .caixaConteudoPost {
@@ -208,10 +226,13 @@ h1 {
 }
 
 .grupoImagemENickUser {
-    margin-top: 8px;
-    padding: 5px;
+    margin-top: 4px;
+    padding: 4px;
     border: #222831 2px solid;
     margin-bottom: 4px;
+    scroll-behavior: auto;
+    overflow: auto;
+    max-height: 13.5vh;
 }
 
 .botaoCurtir {
@@ -236,7 +257,7 @@ h1 {
 .botaoSeguir,
 .botaoCurtir {
     text-align: center;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .botaoComentar:hover,
@@ -244,6 +265,7 @@ h1 {
 .botaoCurtir:hover {
     transition: 0.8s;
     background: gray;
+    color: #e9e9e9;
 }
 
 .posicionaTabelaCimaUserFoto {
@@ -252,8 +274,13 @@ h1 {
 }
 
 .posicionaTabelaCimaUserNome {
-    text-align: center;
+    text-align: left;
     font-size: 12px;
+    color: #222831;
+}
+
+.posicionaTabelaCimaUserNome:hover {
+    color: #000a90;
 }
 
 /* ITENS DE CONTEUDO POST */
@@ -290,7 +317,8 @@ h1 {
 }
 
 .inputcomentarioBtn:hover {
-    background-color: gray;
+    background: gray;
+    color: #e9e9e9;
     border: #222831 2px solid;
 }
 
@@ -350,21 +378,22 @@ h1 {
         border-bottom: 2px #222831 solid;
     }
     .fundoNavBar {
-        background-color: #e9e9e9;
+        background: #e9e9e9;
         padding: 5px;
         z-index: 100;
         text-align: center;
     }
 
     .tabelaEsquerda {
-        width: 20%;
+        /* width: 20%;
         border-radius: 0;
-        padding: 4px;
+        padding: 4px; */
+        display: none;
     }
 
     .tabelaCentro {
         padding: 5px;
-        width: 75%;
+        width: 90%;
         right: 2%;
     }
 
@@ -372,6 +401,11 @@ h1 {
         width: 90%;
         margin-left: 5%;
         height: 50vh;
+    }
+
+    .imgUserPerfil {
+        margin-bottom: 2px;
+        width: 50%;
     }
 
     .tabelaDireita {
@@ -392,7 +426,7 @@ h1 {
     }
 
     .botaoTabelaEsquerda {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .caixaUserImg {
@@ -410,7 +444,7 @@ h1 {
         top: 16vh;
         left: 2%;
         bottom: initial;
-        font-size: 10px;
+        font-size: 12px;
         text-align: left !important;
     }
     .caixaPostTextoJustificado::first-letter {
@@ -426,12 +460,14 @@ h1 {
     }
 
     .posicionaTabelaCimaUserNome {
-        font-size: 10px;
+        font-size: 12px;
+        text-align: center;
+        word-break: break-all;
     }
 
     .grupoTabelaCimabotoes {
         width: 60%;
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .grupoImagemENickUser {
@@ -441,6 +477,7 @@ h1 {
         width: 40%;
         font-size: 12px;
         text-align: center;
+        max-height: 12vh;
         /* word-break: break-all; */
     }
 

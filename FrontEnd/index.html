@@ -12,19 +12,19 @@
         <title>MarcaoBook</title>
         <link rel="stylesheet" href="public/bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="public/bootstrap/css/bootstrap-grid.css" />
-        <!-- <link rel="stylesheet" href="public/css/index.css" /> -->
-        <link rel="stylesheet" href="public/css/redeSocial.css" />
-        <link rel="stylesheet" href="public/css/aside.css" />
-        <link rel="stylesheet" href="public/css/card.css" />
-        <link rel="stylesheet" href="public/css/footer.css" />
-        <link rel="stylesheet" href="public/css/nav.css" />
-        <link rel="stylesheet" href="public/css/others/toasts.css" />
+        <!-- <link rel="stylesheet" href="css/index.css" /> -->
+        <link rel="stylesheet" href="css/redeSocial.css" />
+        <link rel="stylesheet" href="css/aside.css" />
+        <link rel="stylesheet" href="css/card.css" />
+        <link rel="stylesheet" href="css/footer.css" />
+        <link rel="stylesheet" href="css/nav.css" />
+        <link rel="stylesheet" href="css/others/toasts.css" />
     </head>
 
     <body>
         <nav class="tabelaCima navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid fundoNavBar">
-                <a class="navbar-brand" href="/FrontEnd/">MarcaoBook</a>
+                <a class="navbar-brand" href="/FrontEnd/">Seje Bem Vindo ! </a>
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -50,9 +50,7 @@
                             >
                         </li>
                         <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="../FrontEnd/html/teste.html"
+                            <a class="nav-link" href="../html/teste.html"
                                 >Area de testes</a
                             >
                         </li>
@@ -113,17 +111,20 @@
                 <div class="caixaPost margemVertical">
                     <div class="caixaUserImg centroCelularBlockPc">
                         <div class="grupoImagemENickUser centroPcBlockCelular">
-                            <div class="posicionaTabelaCimaUserFoto centro">
+                            <a
+                                href="/"
+                                class="posicionaTabelaCimaUserFoto centro"
+                            >
                                 <img
                                     src="public/images/redeSocial/User_icon_2.png"
-                                    class="imgTabelaEsquerda"
+                                    class="imgUserPerfil"
                                     title="Perfil do User"
                                     alt="Perfil do User"
                                 />
-                            </div>
-                            <div class="posicionaTabelaCimaUserNome">
-                                User: lucas.marcao
-                            </div>
+                            </a>
+                            <a href="/" class="posicionaTabelaCimaUserNome">
+                                De: lucas.marcao kd jjkdfkjfkj jkdfjdfjk dfjdkf
+                            </a>
                         </div>
 
                         <div class="grupoTabelaCimabotoes">
@@ -132,18 +133,21 @@
                                 <div class="btn botaoSeguir">seguir</div>
                             </div>
                             <div class="centro">
-                                <div class="btn botaoComentar">comentar</div>
+                                <div class="btn botaoComentar">
+                                    Enviar Mensagem
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="caixaPostTexto">
+                        <div class="centro centroTexto">
+                            Feito em: 01/12/1999 23:59:59
+                        </div>
                         <div class="centro">X pessoas curtiram</div>
                         <div class="centro">N Comentários</div>
                         <div class="divisoriacaixaPostTexto"></div>
-                        <div class="caixaPostTextoJustificado">
-                            User Diz: 0123456789 0123456789 0123456789
-                            0123456789 0123456789 0123456789 0123456789
-                            0123456789 0123456789 100chars
+                        <div class="caixaPostTextoJustificado" id="json">
+                            User Diz:
                         </div>
                     </div>
                     <div class="caixaConteudoPost centroCelularBlockPc">
@@ -209,7 +213,7 @@
                         <div class="caixaPostTextoJustificado">
                             User Diz: 0123456789 0123456789 0123456789
                             0123456789 0123456789 0123456789 0123456789
-                            0123456789 0123456789 100chars
+                            0123456789 100chars
                         </div>
                     </div>
                     <div class="caixaConteudoPost centroCelularBlockPc">
@@ -273,7 +277,7 @@
                         <div class="caixaPostTextoJustificado">
                             User Diz: 0123456789 0123456789 0123456789
                             0123456789 0123456789 0123456789 0123456789
-                            0123456789 0123456789 100chars
+                            0123456789 100chars
                         </div>
                     </div>
                     <div class="caixaConteudoPost centroCelularBlockPc">
@@ -379,13 +383,15 @@
         </footer>
 
         <!-- XxxxxxxXXXX___xxxxxxxxx  -->
-        <script src="public/javascript/main.js"></script>
-        <script src="public/javascript/http.js"></script>
-        <script src="public/javascript/style.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/http.js"></script>
+        <script src="js/style.js"></script>
         <script src="public/bootstrap/js/bootstrap.bundle.js"></script>
         <!-- ESSE NÃO POHA
      SÓ O BUNDLE (APENAS)
     <script src="public/bootstrap/js/bootstrap.js"></script> -->
-        <script src="public/javascript/others/toasts.js"></script>
+        <script src="js/others/toasts.js"></script>
+        <script src="js/requisicao.js"></script>
+        <script src="js/Entidade/Users.js"></script>
     </body>
 </html>

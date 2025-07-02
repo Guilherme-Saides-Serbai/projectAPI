@@ -1,0 +1,32 @@
+/* 
+
+{}  background-color: #F6F5F2; 
+
+cores que vou usar no projeto:
+#16325B
+#227B94
+#78B7D0
+#FFDC7F
+
+dark
+#222831
+
+claro
+#F6F5F2
+
+*/
+.imgToast {
+  background-color: #ffdc7f;
+  border: 1px solid #000000;
+  width: 40px;
+  height: auto;
+  padding: 4px;
+}
+
+.toastMarcaoCabeca {
+  background-color: #78b7d0 !important;
+}
+
+.toastMarcaoCorpo {
+  background-color: #227b94 !important;
+}

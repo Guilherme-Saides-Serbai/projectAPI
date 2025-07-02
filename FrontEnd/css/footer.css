@@ -1,0 +1,26 @@
+/* 
+
+{}  background-color: #F6F5F2; 
+
+cores que vou usar no projeto:
+#16325B
+#227B94
+#78B7D0
+#FFDC7F
+
+dark
+#222831
+
+claro
+#F6F5F2
+
+*/
+
+#footerMarcao {
+  margin-top: 15px !important;
+  background-color: #227b94;
+  color: #222831;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 55px;
+}

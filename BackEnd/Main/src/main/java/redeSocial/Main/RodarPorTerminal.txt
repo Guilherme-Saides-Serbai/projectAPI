@@ -1,0 +1,12 @@
+// pra rodar, na pasta projectAPI/BackEnd:
+
+
+/usr/bin/env C:\\Program\ Files\\Java\\jdk-21\\bin\\java.exe @C:\\Users\\Usuario\\AppData\\Local\\Temp\\cp_2rtcsoimgwcfjq2jx8b4igkht.argfile redeSocial.Main.MainApplication
+
+
+/usr/bin/env C:\\Program\ Files\\Java\\jdk-21\\bin\\java.exe @C:\\Users\\Usuario\\AppData\\Local\\Temp\\cp_2rtcsoimgwcfjq2jx8b4igkht.argfile redeSocial.Main.MainApplication
+
+
+/usr/bin/env C:\\Program\ Files\\Java\\jdk-21\\bin\\java.exe @C:\\Users\\Usuario\\AppData\\Local\\Temp\\cp_2rtcsoimgwcfjq2jx8b4igkht.argfile redeSocial.Main.MainApplication
+
+/usr/bin/env C:\\Program\ Files\\Java\\jdk-21\\bin\\java.exe @C:\\Users\\Usuario\\AppData\\Local\\Temp\\cp_2rtcsoimgwcfjq2jx8b4igkht.argfile redeSocial.Main.MainApplication
