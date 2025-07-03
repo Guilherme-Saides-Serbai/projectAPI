@@ -180,7 +180,48 @@
 
                 <!-- mais posts -->
 
-                <div class="caixaPost margemVertical">
+                <hr />
+                <h4 class="margemVertical centro">Requisições JS</h4>
+
+                <div
+                    id="errorDireto"
+                    class="alert alert-danger margemVertical centro"
+                ></div>
+
+                <div id="forminserir" class="margemVertical">
+                    <div id="formNomeUserInserir"></div>
+                    <div id="botaoEnviaUserInserir"></div>
+                </div>
+
+                <div id="formAlterar" class="margemVertical">
+                    <div id="formNomeUserAlterar"></div>
+                    <div id="botaoEnviaUserAlterar"></div>
+                </div>
+
+                <div id="listaruser" class="margemVertical centro">
+                    <table border="1" id="tabelaUsers">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Slug</th>
+                                <th>Admin</th>
+                                <th>Nome</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div id="buscaruser" class="margemVertical">
+                    <div id="formNomeUserSelecionar"></div>
+                    <div id="botaoBuscarUser"></div>
+                    <div id="resultadoBusca"></div>
+                </div>
+
+                <div id="listaUserExcluir" class="centro margemVertical"></div>
+
+                <!-- <div class="caixaPost margemVertical">
                     <div class="caixaUserImg centroCelularBlockPc">
                         <div class="grupoImagemENickUser centroPcBlockCelular">
                             <div class="posicionaTabelaCimaUserFoto centro">
@@ -306,7 +347,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </main>
 

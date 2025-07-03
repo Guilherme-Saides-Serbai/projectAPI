@@ -17,12 +17,25 @@ public class UserGUI {
     private UserDAO userDAO;
 
     // CREATE
+    // @PostMapping
+    // public ResponseEntity<User> create(@RequestBody User user) {
+    // User saved = userDAO.save(user);
+    // return ResponseEntity
+    // .status(HttpStatus.CREATED)
+    // .body(saved);
+    // }
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User user) {
-        User saved = userDAO.save(user);
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(saved);
+    public ResponseEntity<?> create(@RequestBody User user) {
+        try {
+            User saved = userDAO.save(user);
+            return ResponseEntity
+                    .status(HttpStatus.CREATED)
+                    .body(saved);
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR) // ou HttpStatus.INTERNAL_SERVER_ERROR ou CREATED
+                    .body("Erro ao criar INSERIR: usuário: " + e.getMessage());
+        }
     }
 
     // READ ALL
@@ -40,23 +53,46 @@ public class UserGUI {
     }
 
     // UPDATE
+    // @PutMapping({ "/{id}", "/{id}/" })
+    // public ResponseEntity<User> update(
+    // @PathVariable Long id,
+    // @RequestBody User payload) {
+
+    // return userDAO.findById(id)
+    // .map(existing -> {
+    // existing.setEmail(payload.getEmail());
+    // existing.setSenhaHash(payload.getSenhaHash());
+    // existing.setSlug(payload.getSlug());
+    // existing.setIsAdmin(payload.getIsAdmin());
+    // existing.setNomeUser(payload.getNomeUser());
+    // // dataInsercao NÃO é alterada
+    // // update antigo
+    // User updated = userDAO.save(existing);
+    // return ResponseEntity.ok(updated);
+    // })
+    // .orElse(ResponseEntity.notFound().build());
+    // }
     @PutMapping({ "/{id}", "/{id}/" })
-    public ResponseEntity<User> update(
+    public ResponseEntity<?> update(
             @PathVariable Long id,
             @RequestBody User payload) {
-
-        return userDAO.findById(id)
-                .map(existing -> {
-                    existing.setEmail(payload.getEmail());
-                    existing.setSenha(payload.getSenha());
-                    existing.setSlug(payload.getSlug());
-                    existing.setAdmin(payload.getAdmin());
-                    existing.setNomeUser(payload.getNomeUser());
-                    // dataInsercao NÃO é alterada
-                    User updated = userDAO.save(existing);
-                    return ResponseEntity.ok(updated);
-                })
-                .orElse(ResponseEntity.notFound().build());
+        try {
+            return userDAO.findById(id)
+                    .map(existing -> {
+                        existing.setEmail(payload.getEmail());
+                        existing.setSenhaHash(payload.getSenhaHash());
+                        existing.setSlug(payload.getSlug());
+                        existing.setIsAdmin(payload.getIsAdmin());
+                        existing.setNomeUser(payload.getNomeUser());
+                        User updated = userDAO.save(existing);
+                        return ResponseEntity.ok(updated);
+                    })
+                    .orElse(ResponseEntity.notFound().build());
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erro ao atualizar usuário: " + e.getMessage());
+        }
     }
 
     // DELETE

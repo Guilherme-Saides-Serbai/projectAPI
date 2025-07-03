@@ -97,7 +97,7 @@ Valores padrão seguros para todos os campos
 Exemplo de uso:
 */
 const novoUser = new User({
-    idUser: 4,
+    idUser: 999,
     email: "usuario@exemplo.com",
     senha: "senha123",
     slug: "usuario-teste",
@@ -110,4 +110,4 @@ if (novoUser.userValido() === true) {
     console.log("else novoUSER validado: \n", novoUser.userValido());
 }
 
-console.log("novoUSER: \n\n", novoUser.toJSON());
+console.log("novoUSER (não é do BD, é do js esse): \n\n", novoUser.toJSON());

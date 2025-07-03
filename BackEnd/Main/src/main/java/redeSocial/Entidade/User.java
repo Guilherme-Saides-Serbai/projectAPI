@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "users") // usa "users" para evitar palavra reservada
+@Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
@@ -14,14 +15,14 @@ public class User {
     @Column(nullable = false, unique = true, length = 150)
     private String email;
 
-    @Column(nullable = false, length = 100)
-    private String senha;
+    @Column(name = "senha_hash", nullable = false, length = 255)
+    private String senhaHash;
 
     @Column(nullable = false, unique = true, length = 100)
     private String slug;
 
-    @Column(nullable = false)
-    private Boolean admin;
+    @Column(name = "is_admin", nullable = false)
+    private Boolean isAdmin;
 
     @Column(name = "nome_user", length = 100)
     private String nomeUser;
@@ -34,7 +35,8 @@ public class User {
         this.dataInsercao = Instant.now();
     }
 
-    // --- getters e setters ---
+    // Getters e Setters
+
     public Long getIdUser() {
         return idUser;
     }
@@ -51,12 +53,12 @@ public class User {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getSenhaHash() {
+        return senhaHash;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setSenhaHash(String senhaHash) {
+        this.senhaHash = senhaHash;
     }
 
     public String getSlug() {
@@ -67,12 +69,12 @@ public class User {
         this.slug = slug;
     }
 
-    public Boolean getAdmin() {
-        return admin;
+    public Boolean getIsAdmin() {
+        return isAdmin;
     }
 
-    public void setAdmin(Boolean admin) {
-        this.admin = admin;
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
     public String getNomeUser() {
