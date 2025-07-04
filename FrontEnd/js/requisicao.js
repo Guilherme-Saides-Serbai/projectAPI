@@ -49,64 +49,77 @@ window.document.body.onload = function () {
 
 // inserir
 window.onload = function () {
-    // Inserir usuário
-    document.getElementById("formNomeUserInserir").innerHTML = `
-        <input id="emailI" type="text" placeholder="Email" style="display:block;" required/>
-        <input id="senhaI" type="text" placeholder="Senha Hash" style="display:block;" required/>
-        <input id="slugI" type="text" placeholder="Slug" style="display:block;" />
-        <select id="adminI" style="display:block;">
-            <option value="false">User</option>
-            <option value="true">Admin</option>
-        </select>
-        <input id="nomeI" type="text" placeholder="Nome" style="display:block;"/>
-    `;
-    document.getElementById(
-        "botaoEnviaUserInserir"
-    ).innerHTML = `<button id="btnInserir">Inserir</button>`;
-    document.getElementById("btnInserir").addEventListener("click", createUser);
+    try {
+        // Inserir usuário
+        document.getElementById("formNomeUserInserir").innerHTML = `
+            <input id="emailI" type="text" placeholder="Email" style="display:block;" required/>
+            <input id="senhaI" type="text" placeholder="Senha Hash" style="display:block;" required/>
+            <input id="slugI" type="text" placeholder="Slug" style="display:block;" />
+            <select id="adminI" style="display:block;">
+                <option value="false">User</option>
+                <option value="true">Admin</option>
+            </select>
+            <input id="nomeI" type="text" placeholder="Nome" style="display:block;"/>
+        `;
+        document.getElementById(
+            "botaoEnviaUserInserir"
+        ).innerHTML = `<button id="btnInserir">Inserir</button>`;
+        document
+            .getElementById("btnInserir")
+            .addEventListener("click", createUser);
 
-    // Atualizar usuário
-    document.getElementById("formNomeUserAlterar").innerHTML = `
-        <input id="idU" type="number" placeholder="ID a alterar" required/>
-        <input id="emailU" type="text" placeholder="Email" required/>
-        <input id="senhaU" type="text" placeholder="Senha Hash" />
-        <input id="slugU" type="text" placeholder="Slug" />
-        <select id="adminU">
-            <option value="false">User</option>
-            <option value="true">Admin</option>
-        </select>
-        <input id="nomeU" type="text" placeholder="Nome" />
-    `;
-    document.getElementById(
-        "botaoEnviaUserAlterar"
-    ).innerHTML = `<button id="btnAlterar">Alterar</button>`;
-    document.getElementById("btnAlterar").addEventListener("click", updateUser);
+        // Atualizar usuário
+        document.getElementById("formNomeUserAlterar").innerHTML = `
+            <input id="idU" type="number" placeholder="ID a alterar" required/>
+            <input id="emailU" type="text" placeholder="Email" required/>
+            <input id="senhaU" type="text" placeholder="Senha Hash" />
+            <input id="slugU" type="text" placeholder="Slug" />
+            <select id="adminU">
+                <option value="false">User</option>
+                <option value="true">Admin</option>
+            </select>
+            <input id="nomeU" type="text" placeholder="Nome" />
+        `;
+        document.getElementById(
+            "botaoEnviaUserAlterar"
+        ).innerHTML = `<button id="btnAlterar">Alterar</button>`;
+        document
+            .getElementById("btnAlterar")
+            .addEventListener("click", updateUser);
 
-    // Buscar usuário
-    document.getElementById("formNomeUserSelecionar").innerHTML = `
-        <input id="idS" type="number" placeholder="ID a buscar" />
-    `;
-    document.getElementById(
-        "botaoBuscarUser"
-    ).innerHTML = `<button id="btnBuscar">Buscar</button>`;
-    document.getElementById("btnBuscar").addEventListener("click", getUserById);
+        // Buscar usuário
+        document.getElementById("formNomeUserSelecionar").innerHTML = `
+            <input id="idS" type="number" placeholder="ID a buscar" />
+        `;
+        document.getElementById(
+            "botaoBuscarUser"
+        ).innerHTML = `<button id="btnBuscar">Buscar</button>`;
+        document
+            .getElementById("btnBuscar")
+            .addEventListener("click", getUserById);
 
-    // Carrega lista inicial
-    listUsers();
+        // Carrega lista inicial
+        listUsers();
 
-    // ichi no kataaa
-    renderDeleteList();
+        // ichi no kataaa
+        renderDeleteList();
 
-    // --- Adiciona o listener para os botões de exclusão ---
-    // Usando "event delegation" para capturar cliques na div pai
-    const deleteListDiv = document.getElementById("listaUserExcluir");
-    deleteListDiv.addEventListener("click", function (event) {
-        // Verifica se o elemento clicado é um botão de exclusão
-        if (event.target && event.target.classList.contains("btn-excluir")) {
-            const userId = event.target.getAttribute("data-id");
-            deleteUser(userId);
-        }
-    });
+        // --- Adiciona o listener para os botões de exclusão ---
+        // Usando "event delegation" para capturar cliques na div pai
+        const deleteListDiv = document.getElementById("listaUserExcluir");
+        deleteListDiv.addEventListener("click", function (event) {
+            // Verifica se o elemento clicado é um botão de exclusão
+            if (
+                event.target &&
+                event.target.classList.contains("btn-excluir")
+            ) {
+                const userId = event.target.getAttribute("data-id");
+                deleteUser(userId);
+            }
+        });
+    } catch (error) {
+        console.log("Marcao -> deu erro pois: ", error);
+    }
 };
 
 // Funções async
