@@ -16,6 +16,7 @@ import redeSocial.LIBS.TesteLib;
 				"redeSocial.GUI",
 				"redeSocial.DAOs",
 				"redeSocial.Entidade",
+				"redeSocial.Config",
 				"redeSocial.Main"
 		})
 @EnableJpaRepositories(

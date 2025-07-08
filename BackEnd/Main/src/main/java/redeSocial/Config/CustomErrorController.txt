@@ -1,0 +1,89 @@
+package redeSocial.Config;
+
+import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServletRequest;
+
+@RestController
+@RequestMapping({ "/error", "/error/" })
+public class CustomErrorController implements ErrorController {
+
+    @RequestMapping
+    public String handleError(HttpServletRequest request, Model model) {
+        Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+
+        if (status != null) {
+            int statusCode = Integer.parseInt(status.toString());
+            model.addAttribute("status", statusCode);
+            model.addAttribute("error", HttpStatus.valueOf(statusCode).getReasonPhrase());
+
+            if (statusCode == HttpStatus.NOT_FOUND.value()) {
+                return """
+                        <!DOCTYPE html>
+                        <html lang="pt-BR">
+                            <head>
+                                <meta charset="UTF-8" />
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                                <title>Página Não Encontrada</title>
+                                <style>
+                                    body {
+                                        font-family: "Arial", sans-serif;
+                                        background-color: #f8f9fa;
+                                        color: #343a40;
+                                        text-align: center;
+                                        padding: 50px;
+                                    }
+                                    .container {
+                                        max-width: 600px;
+                                        margin: 0 auto;
+                                    }
+                                    h1 {
+                                        font-size: 50px;
+                                        color: #dc3545;
+                                    }
+                                    .emoji {
+                                        font-size: 60px;
+                                        margin-bottom: 20px;
+                                    }
+                                    a {
+                                        color: #007bff;
+                                        text-decoration: none;
+                                    }
+                                    a:hover {
+                                        text-decoration: underline;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <div class="container">
+                                    <div class="emoji">😕</div>
+                                    <h1>404</h1>
+                                    <h2>Página Não Encontrada</h2>
+                                    <p>
+                                        Desculpe, a página que você está procurando não existe ou foi
+                                        movida.
+                                    </p>
+                                    <p>
+                                        Volte para a <a href="/">página inicial</a> ou tente novamente.
+                                    </p>
+                                </div>
+                            </body>
+                        </html>
+                        """;
+            }
+        }
+
+        return "error GERAL (NAO 404, tavlez 500)";
+    }
+
+    // Este método não é mais necessário no Spring Boot 3.x, mas pode ser mantido
+    // para compatibilidade
+    public String getErrorPath() {
+        return "/error";
+    }
+}

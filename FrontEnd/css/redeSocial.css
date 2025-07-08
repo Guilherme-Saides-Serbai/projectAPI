@@ -283,6 +283,21 @@ h1 {
     color: #000a90;
 }
 
+table {
+    border: 1px solid black;
+}
+
+table {
+    border: 1px solid black;
+}
+
+th {
+    border: 1px solid black;
+}
+td {
+    border: 1px solid black;
+}
+
 /* ITENS DE CONTEUDO POST */
 
 .tamanhoComeImgPost {

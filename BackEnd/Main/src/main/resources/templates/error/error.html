@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Erro</title>
+        <style>
+            body {
+                font-family: "Arial", sans-serif;
+                background-color: #f8f9fa;
+                color: #343a40;
+                text-align: center;
+                padding: 50px;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            h1 {
+                font-size: 50px;
+                color: #dc3545;
+            }
+            .error-details {
+                background-color: #f1f1f1;
+                padding: 20px;
+                border-radius: 5px;
+                margin: 20px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Ocorreu um erro</h1>
+            <p>Desculpe, algo deu errado.</p>
+
+            <div class="error-details" th:if="${error}">
+                <p>
+                    <strong>Código do erro:</strong>
+                    <span th:text="${status}">Status</span>
+                </p>
+                <p>
+                    <strong>Mensagem:</strong>
+                    <span th:text="${error}">Error</span>
+                </p>
+                <p th:if="${message}" th:text="'Detalhes: ' + ${message}">
+                    Detalhes
+                </p>
+            </div>
+
+            <p>
+                Volte para a <a href="/">página inicial</a> ou tente novamente.
+            </p>
+        </div>
+    </body>
+</html>

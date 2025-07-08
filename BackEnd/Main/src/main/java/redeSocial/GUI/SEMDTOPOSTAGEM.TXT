@@ -1,0 +1,68 @@
+
+// base antiga.
+// CREATE sem DTO
+// @PostMapping
+// public ResponseEntity<?> create(@RequestBody Postagem postagem) {
+// try {
+// Postagem saved = postagemDAO.save(postagem);
+// return ResponseEntity
+// .status(HttpStatus.CREATED)
+// .body(saved);
+// } catch (Exception e) {
+// return ResponseEntity
+// .status(HttpStatus.INTERNAL_SERVER_ERROR)
+// .body("Erro ao criar postagem: " + e.getMessage());
+// }
+// }
+
+// READ ALL -> antigo sem dto
+// @GetMapping
+// public List<Postagem> listAll() {
+// return postagemDAO.findAll();
+// }
+
+// READ ONE -> antigo sem dto
+// @GetMapping({ "/{id}", "/{id}/" })
+// public ResponseEntity<Postagem> getById(@PathVariable Long id) {
+// return postagemDAO.findById(id)
+// .map(p -> ResponseEntity.ok(p))
+// .orElse(ResponseEntity.notFound().build());
+// }
+
+// UPDATE -> antigo sem dto
+// @PutMapping({ "/{id}", "/{id}/" })
+// public ResponseEntity<?> update(
+// @PathVariable Long id,
+// @RequestBody Postagem payload) {
+// try {
+// return postagemDAO.findById(id)
+// .map(existing -> {
+// existing.setUser(payload.getUser());
+// existing.setAnuncio(payload.getAnuncio());
+// existing.setTextoPost(payload.getTextoPost());
+// existing.setAtributosJson(payload.getAtributosJson());
+// Postagem updated = postagemDAO.save(existing);
+// return ResponseEntity.ok(updated);
+// })
+// .orElse(ResponseEntity.notFound().build());
+// } catch (Exception e) {
+// return ResponseEntity
+// .status(HttpStatus.INTERNAL_SERVER_ERROR)
+// .body("Erro ao atualizar postagem: " + e.getMessage());
+// }
+// }
+
+// DELETE -> antigo sem dto
+// @DeleteMapping({ "/{id}", "/{id}/" })
+// public ResponseEntity<String> delete(@PathVariable Long id) {
+// return postagemDAO.findById(id)
+// .map(p -> {
+// postagemDAO.deleteById(id);
+// return ResponseEntity
+// .status(HttpStatus.OK)
+// .body("✅ Postagem com ID " + id + " foi removida com sucesso.");
+// })
+// .orElseGet(() -> ResponseEntity
+// .status(HttpStatus.NOT_FOUND)
+// .body("⚠️ Postagem com ID " + id + " não foi encontrada."));
+// }

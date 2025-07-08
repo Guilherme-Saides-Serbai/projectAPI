@@ -35,6 +35,10 @@ public class User {
         this.dataInsercao = Instant.now();
     }
 
+    public User() {
+        // Construtor vazio necessário para o Hibernate
+    }
+
     // Getters e Setters
 
     public Long getIdUser() {

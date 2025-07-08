@@ -1,4 +1,4 @@
-package redeSocial.Main;
+package redeSocial.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

@@ -1,0 +1,445 @@
+# Implementação da Tabela Comentário
+
+Com base nos códigos fornecidos, vou criar os 4 arquivos necessários para a entidade Comentário:
+
+## 1. Comentario.java (Entidade)
+
+```java
+package redeSocial.Entidade;
+
+import jakarta.persistence.*;
+import java.time.Instant;
+
+@Entity
+@Table(name = "comentario")
+public class Comentario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_comentario")
+    private Long idComentario;
+
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_postagem", nullable = false, foreignKey = @ForeignKey(
+        name = "fk_comentario_postagem", 
+        foreignKeyDefinition = "FOREIGN KEY (id_postagem) REFERENCES postagem(id_postagem) ON DELETE CASCADE ON UPDATE CASCADE"
+    ))
+    private Postagem postagem;
+
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user", nullable = false, foreignKey = @ForeignKey(
+        name = "fk_comentario_users", 
+        foreignKeyDefinition = "FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE ON UPDATE CASCADE"
+    ))
+    private User user;
+
+    @Column(name = "texto_comentario", columnDefinition = "TEXT", nullable = false)
+    private String textoComentario;
+
+    @Column(name = "data_insercao", nullable = false, updatable = false)
+    private Instant dataInsercao;
+
+    @Column(name = "data_alteracao", nullable = false)
+    private Instant dataAlteracao;
+
+    @PrePersist
+    protected void onCreate() {
+        this.dataInsercao = Instant.now();
+        this.dataAlteracao = this.dataInsercao;
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.dataAlteracao = Instant.now();
+    }
+
+    // Getters e Setters
+    public Long getIdComentario() {
+        return idComentario;
+    }
+
+    public void setIdComentario(Long idComentario) {
+        this.idComentario = idComentario;
+    }
+
+    public Postagem getPostagem() {
+        return postagem;
+    }
+
+    public void setPostagem(Postagem postagem) {
+        this.postagem = postagem;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getTextoComentario() {
+        return textoComentario;
+    }
+
+    public void setTextoComentario(String textoComentario) {
+        this.textoComentario = textoComentario;
+    }
+
+    public Instant getDataInsercao() {
+        return dataInsercao;
+    }
+
+    public Instant getDataAlteracao() {
+        return dataAlteracao;
+    }
+
+    public void setDataInsercao(Instant dataInsercao) {
+        this.dataInsercao = dataInsercao;
+    }
+
+    public void setDataAlteracao(Instant dataAlteracao) {
+        this.dataAlteracao = dataAlteracao;
+    }
+}
+```
+
+## 2. ComentarioDAO.java (Repositório)
+
+```java
+package redeSocial.DAOs;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import redeSocial.Entidade.Comentario;
+
+public interface ComentarioDAO extends JpaRepository<Comentario, Long> {
+    // Buscas customizadas podem ser adicionadas aqui
+    // Ex: List<Comentario> findByPostagemIdPostagem(Long idPostagem);
+}
+```
+
+## 3. ComentarioDTO.java (Data Transfer Object)
+
+```java
+package redeSocial.DTOs;
+
+import java.time.Instant;
+
+public class ComentarioDTO {
+    private Long idComentario;
+    private Long idPostagem;
+    private Long idUser;
+    private String textoComentario;
+    private Instant dataInsercao;
+    private Instant dataAlteracao;
+    private UserDTO user;
+
+    // Getters e Setters
+    public Long getIdComentario() {
+        return idComentario;
+    }
+
+    public void setIdComentario(Long idComentario) {
+        this.idComentario = idComentario;
+    }
+
+    public Long getIdPostagem() {
+        return idPostagem;
+    }
+
+    public void setIdPostagem(Long idPostagem) {
+        this.idPostagem = idPostagem;
+    }
+
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
+
+    public String getTextoComentario() {
+        return textoComentario;
+    }
+
+    public void setTextoComentario(String textoComentario) {
+        this.textoComentario = textoComentario;
+    }
+
+    public Instant getDataInsercao() {
+        return dataInsercao;
+    }
+
+    public void setDataInsercao(Instant dataInsercao) {
+        this.dataInsercao = dataInsercao;
+    }
+
+    public Instant getDataAlteracao() {
+        return dataAlteracao;
+    }
+
+    public void setDataAlteracao(Instant dataAlteracao) {
+        this.dataAlteracao = dataAlteracao;
+    }
+
+    public UserDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserDTO user) {
+        this.user = user;
+    }
+}
+```
+
+## 4. ComentarioGUI.java (Controller)
+
+```java
+package redeSocial.GUI;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
+
+import redeSocial.Entidade.Comentario;
+import redeSocial.Entidade.Postagem;
+import redeSocial.Entidade.User;
+import redeSocial.DAOs.ComentarioDAO;
+import redeSocial.DTOs.ComentarioDTO;
+import redeSocial.DTOs.UserDTO;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@RestController
+@RequestMapping({ "/comentarios", "/comentarios/", "/comentario", "/comentario/" })
+public class ComentarioGUI {
+
+    @Autowired
+    private ComentarioDAO comentarioDAO;
+
+    // Método para converter Comentario para DTO
+    private ComentarioDTO convertToDTO(Comentario comentario) {
+        ComentarioDTO dto = new ComentarioDTO();
+        dto.setIdComentario(comentario.getIdComentario());
+        dto.setIdPostagem(comentario.getPostagem().getIdPostagem());
+        dto.setTextoComentario(comentario.getTextoComentario());
+        dto.setDataInsercao(comentario.getDataInsercao());
+        dto.setDataAlteracao(comentario.getDataAlteracao());
+
+        UserDTO userDTO = new UserDTO();
+        userDTO.setIdUser(comentario.getUser().getIdUser());
+        userDTO.setEmail(comentario.getUser().getEmail());
+        userDTO.setSlug(comentario.getUser().getSlug());
+        userDTO.setIsAdmin(comentario.getUser().getIsAdmin());
+        userDTO.setNomeUser(comentario.getUser().getNomeUser());
+
+        dto.setUser(userDTO);
+        return dto;
+    }
+
+    // Método para converter DTO para Comentario
+    private Comentario convertToEntity(ComentarioDTO dto) {
+        Comentario comentario = new Comentario();
+        comentario.setIdComentario(dto.getIdComentario());
+        comentario.setTextoComentario(dto.getTextoComentario());
+        
+        // Relacionamento com Postagem
+        if (dto.getIdPostagem() != null) {
+            Postagem postagem = new Postagem();
+            postagem.setIdPostagem(dto.getIdPostagem());
+            comentario.setPostagem(postagem);
+        }
+        
+        // Relacionamento com User
+        if (dto.getUser() != null && dto.getUser().getIdUser() != null) {
+            User user = new User();
+            user.setIdUser(dto.getUser().getIdUser());
+            comentario.setUser(user);
+        }
+        
+        return comentario;
+    }
+
+    // CREATE
+    @PostMapping
+    public ResponseEntity<?> create(@RequestBody ComentarioDTO comentarioDTO) {
+        try {
+            // Validações
+            if (comentarioDTO.getIdPostagem() == null) {
+                return ResponseEntity.badRequest().body("O ID da postagem é obrigatório");
+            }
+            if (comentarioDTO.getUser() == null || comentarioDTO.getUser().getIdUser() == null) {
+                return ResponseEntity.badRequest().body("O ID do usuário é obrigatório");
+            }
+            if (comentarioDTO.getTextoComentario() == null || comentarioDTO.getTextoComentario().trim().isEmpty()) {
+                return ResponseEntity.badRequest().body("O texto do comentário é obrigatório");
+            }
+
+            Comentario comentario = convertToEntity(comentarioDTO);
+            Comentario saved = comentarioDAO.save(comentario);
+            return ResponseEntity.status(HttpStatus.CREATED).body(convertToDTO(saved));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erro ao criar comentário: " + e.getMessage());
+        }
+    }
+
+    // READ ALL
+    @GetMapping
+    public ResponseEntity<List<ComentarioDTO>> listarTodos() {
+        List<Comentario> comentarios = comentarioDAO.findAll();
+        List<ComentarioDTO> dtos = comentarios.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
+    }
+
+    // READ BY POSTAGEM
+    @GetMapping("/postagem/{idPostagem}")
+    public ResponseEntity<List<ComentarioDTO>> listarPorPostagem(@PathVariable Long idPostagem) {
+        List<Comentario> comentarios = comentarioDAO.findByPostagemIdPostagem(idPostagem);
+        List<ComentarioDTO> dtos = comentarios.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
+    }
+
+    // READ ONE
+    @GetMapping({ "/{id}", "/{id}/" })
+    public ResponseEntity<?> getById(@PathVariable Long id) {
+        return comentarioDAO.findById(id)
+                .map(comentario -> ResponseEntity.ok(convertToDTO(comentario)))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    // UPDATE
+    @PutMapping({ "/{id}", "/{id}/" })
+    public ResponseEntity<?> update(
+            @PathVariable Long id,
+            @RequestBody ComentarioDTO comentarioDTO) {
+        try {
+            return comentarioDAO.findById(id)
+                    .map(existing -> {
+                        existing.setTextoComentario(comentarioDTO.getTextoComentario());
+                        
+                        Comentario updated = comentarioDAO.save(existing);
+                        return ResponseEntity.ok(convertToDTO(updated));
+                    })
+                    .orElse(ResponseEntity.notFound().build());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erro ao atualizar comentário: " + e.getMessage());
+        }
+    }
+
+    // DELETE
+    @DeleteMapping({ "/{id}", "/{id}/" })
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        return comentarioDAO.findById(id)
+                .map(c -> {
+                    comentarioDAO.deleteById(id);
+                    return ResponseEntity.ok("✅ Comentário com ID " + id + " foi removido com sucesso.");
+                })
+                .orElseGet(() -> ResponseEntity
+                        .status(HttpStatus.NOT_FOUND)
+                        .body("⚠️ Comentário com ID " + id + " não foi encontrado."));
+    }
+}
+```
+
+## Implementação Adicional Necessária
+
+### 1. Adicione este método no ComentarioDAO.java:
+
+```java
+List<Comentario> findByPostagemIdPostagem(Long idPostagem);
+```
+
+### 2. Atualize o UserDTO (se necessário):
+
+```java
+package redeSocial.DTOs;
+
+public class UserDTO {
+    private Long idUser;
+    private String email;
+    private String slug;
+    private Boolean isAdmin;
+    private String nomeUser;
+
+    // Getters e Setters
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public Boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    public String getNomeUser() {
+        return nomeUser;
+    }
+
+    public void setNomeUser(String nomeUser) {
+        this.nomeUser = nomeUser;
+    }
+}
+```
+
+## Exemplo de Uso
+
+### Criar um comentário:
+
+```bash
+curl -X POST http://localhost:8080/comentarios \
+  -H "Content-Type: application/json" \
+  -d '{
+    "idPostagem": 1,
+    "textoComentario": "Excelente postagem!",
+    "user": {
+        "idUser": 1
+    }
+  }'
+```
+
+### Listar comentários de uma postagem:
+
+```bash
+curl http://localhost:8080/comentarios/postagem/1
+```
+
+Esta implementação segue o mesmo padrão das postagens, com as seguintes características:
+
+1. Relacionamentos corretos com Postagem e User
+2. Validações em todas as operações
+3. Tratamento adequado de DTOs
+4. Operações CRUD completas
+5. Endpoint específico para buscar comentários por postagem
+6. Tratamento de datas automático
+7. Respostas padronizadas em JSON

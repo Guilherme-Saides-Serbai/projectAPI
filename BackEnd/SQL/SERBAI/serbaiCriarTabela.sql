@@ -45,8 +45,8 @@ FOREIGN KEY (id_user) REFERENCES users(id_user)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
 
- -- Tabela de comentários
- CREATE TABLE IF NOT EXISTS comentario (
+-- Tabela de comentários
+CREATE TABLE IF NOT EXISTS comentario (
 id_comentario BIGSERIAL PRIMARY KEY,
 id_postagem BIGINT NOT NULL ,
 id_user INTEGER NOT NULL ,
@@ -61,7 +61,7 @@ FOREIGN KEY (id_user) REFERENCES users(id_user)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
 
- -- Tabela de curtidas
+-- Tabela de curtidas
 CREATE TABLE IF NOT EXISTS curtida (
 id_curtida BIGSERIAL PRIMARY KEY,
 id_user INTEGER NOT NULL ,
