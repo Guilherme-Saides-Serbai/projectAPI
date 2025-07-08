@@ -54,7 +54,7 @@ async function listComentarios() {
                     <tr>
                         <td>${c.idComentario}</td>
                         <td>${c.idPostagem}</td>
-                        <td>${c.idUser}</td>
+                        <td>${c.user.idUser} - ${c.user.nomeUser}</td>
                         <td>${c.textoComentario}</td>
                         <td>${dataFormatada}</td>
                     </tr>
