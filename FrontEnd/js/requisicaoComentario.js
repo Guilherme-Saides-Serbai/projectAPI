@@ -50,6 +50,9 @@ async function listComentarios() {
             const dataFormatada = c.dataInsercao
                 ? new Date(c.dataInsercao).toLocaleString()
                 : "";
+            const dataFormatada2 = c.dataAlteracao
+                ? new Date(c.dataAlteracao).toLocaleString()
+                : "";
             tbody.innerHTML += `
                     <tr>
                         <td>${c.idComentario}</td>
@@ -57,6 +60,7 @@ async function listComentarios() {
                         <td>${c.user.idUser} - ${c.user.nomeUser}</td>
                         <td>${c.textoComentario}</td>
                         <td>${dataFormatada}</td>
+                        <td>${dataFormatada2}</td>
                     </tr>
                 `;
         });
@@ -191,7 +195,8 @@ async function renderDeleteList() {
 
         // Cria uma tabela para melhor alinhamento
         let tableHTML = `
-                    <table style="width: 100%; border-collapse: collapse;">
+
+                    <table style="width: 80%; border-collapse: collapse;">
                         <thead>
                             <tr>
                                 <th style="text-align: center;">ID</th>
@@ -214,7 +219,7 @@ async function renderDeleteList() {
                 c.textoComentario.length > 50 ? "..." : ""
             }</td>
                             <td class="centro">
-                                <button class="btn-excluir-comentario btn-excluir" data-id="${
+                                <button class="btn btn-danger btn-excluir-comentario btn-excluir" data-id="${
                                     c.idComentario
                                 }">
                                     Excluir 🗑️

@@ -3,7 +3,7 @@ window.onload = function () {
     try {
         // Inserir usuário
         document.getElementById("formNomeUserInserir").innerHTML = `
-            <input id="emailI" type="text" placeholder="Email" style="display:block;" required/>
+            <input id="emailI" type="text" placeholder="Email" style="display:block;" minlength="3" maxlength="120" required/>
             <input id="senhaI" type="text" placeholder="Senha Hash" style="display:block;" required/>
             <input id="slugI" type="text" placeholder="Slug" style="display:block;" />
             <select id="adminI" style="display:block;">

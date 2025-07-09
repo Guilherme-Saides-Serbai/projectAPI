@@ -10,7 +10,7 @@ import redeSocial.Entidade.User;
 import java.util.List;
 
 @RestController
-@RequestMapping({ "/users", "/users/" })
+@RequestMapping({ "/users", "/users/", "/user", "/user/" })
 public class UserGUI {
 
     @Autowired

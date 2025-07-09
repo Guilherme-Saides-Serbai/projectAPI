@@ -1,214 +1,157 @@
 <!-- http://127.0.0.1:5501/FrontEnd/html/teste.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="shortcut icon"
-            href="images/chadideia3.png"
-            type="image/x-icon"
-        />
-        <title>Cursor testes</title>
-        <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.css" />
-        <link
-            rel="stylesheet"
-            href="../public/bootstrap/css/bootstrap-grid.css"
-        />
-        <link rel="stylesheet" href="../css/index.css" />
-        <link rel="stylesheet" href="../css/aside.css" />
-        <link rel="stylesheet" href="../css/card.css" />
-        <link rel="stylesheet" href="../css/footer.css" />
-        <link rel="stylesheet" href="../css/nav.css" />
-        <link rel="stylesheet" href="../css/others/toasts.css" />
-    </head>
 
-    <body>
-        <nav class="navbar navbar-expand-lg" id="navbarMarcao">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html">Navbar</a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div
-                    class="collapse navbar-collapse"
-                    id="navbarSupportedContent"
-                >
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link active"
-                                aria-current="page"
-                                href="#"
-                                >Home</a
-                            >
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                linguagens
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="#">Action</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#"
-                                        >Another action</a
-                                    >
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#"
-                                        >Something else here</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">| Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="../public/pseudoDocumentacao.txt"
-                                >| New Link</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <div class="btn btn-warning" id="botaoMusica">
-                                Tocar Música
-                            </div>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input
-                            class="form-control me-2"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                        />
-                        <button class="btn btn-info" type="submit">
-                            Search
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- XxxxxxxXXXX___xxxxxxxxx  -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/chadideia3.png" type="image/x-icon" />
+    <title>Cursor testes</title>
+    <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../public/bootstrap/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/aside.css" />
+    <link rel="stylesheet" href="../css/card.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/others/toasts.css" />
+</head>
 
-        <!-- XxxxxxxXXXX___xxxxxxxxx  -->
-        <h1>Firo filos.</h1>
-        <main>
-            <div class="centro">
-                <table
-                    class="table table-success table-striped"
-                    id="tabulaRasa"
-                >
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>string</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
-
-        <div class="centro">
-            <button type="button" class="btn btn-primary" id="liveToastBtn">
-                Show live toast
+<body>
+    <nav class="navbar navbar-expand-lg" id="navbarMarcao">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-
-        <div
-            class="toastMarcao toast-container position-fixed bottom-0 end-0 p-3"
-        >
-            <div
-                id="liveToast"
-                class="toast"
-                role="alert"
-                aria-live="assertive"
-                aria-atomic="true"
-            >
-                <div class="toastMarcaoCabeca toast-header">
-                    <img
-                        src="../public/images/chadideia1.png"
-                        class="imgToast rounded me-2"
-                        alt="descricaoMarcao"
-                    />
-                    <strong class="me-auto textoPreto">Bootstrap</strong>
-                    <small class="textoBranco">11 mins ago</small>
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="toast"
-                        aria-label="Close"
-                    ></button>
-                </div>
-                <div class="toastMarcaoCorpo toast-body textoBranco">
-                    Bom dia meu povo !!!!
-                </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            linguagens
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">Action</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Another action</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">| Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/pseudoDocumentacao.txt">| New Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn btn-warning" id="botaoMusica">
+                            Tocar Música
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
+                    <button class="btn btn-info" type="submit">
+                        Search
+                    </button>
+                </form>
             </div>
         </div>
+    </nav>
+    <!-- XxxxxxxXXXX___xxxxxxxxx  -->
 
-        <!-- XxxxxxxXXXX___xxxxxxxxx  -->
-        <aside></aside>
+    <!-- XxxxxxxXXXX___xxxxxxxxx  -->
+    <h1>Firo filos.</h1>
+    <main>
+        <div class="centro">
+            <table class="table table-success table-striped" id="tabulaRasa">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry the Bird</td>
+                        <td>string</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
-        <!-- XxxxxxxXXXX___xxxxxxxxx  -->
-        <footer class="centroTexto" id="footerMarcao">
-            <div class="centralizarTextoVerticalPai">
-                <div class="centralizarTextoVerticalFilho">
-                    Feito por Lucas Marcão - 2024.
-                </div>
+    <div class="centro">
+        <button type="button" class="btn btn-primary" id="liveToastBtn">
+            Show live toast
+        </button>
+    </div>
+
+    <div class="toastMarcao toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toastMarcaoCabeca toast-header">
+                <img src="../public/images/chadideia1.png" class="imgToast rounded me-2" alt="descricaoMarcao" />
+                <strong class="me-auto textoPreto">Bootstrap</strong>
+                <small class="textoBranco">11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
-        </footer>
+            <div class="toastMarcaoCorpo toast-body textoBranco">
+                Bom dia meu povo !!!!
+            </div>
+        </div>
+    </div>
 
-        <!-- XxxxxxxXXXX___xxxxxxxxx  -->
-        <script src="../js/main.js"></script>
-        <script src="../js/http.js"></script>
-        <script src="../js/style.js"></script>
-        <script src="../public/bootstrap/js/bootstrap.bundle.js"></script>
-        <!-- ESSE NÃO POHA
+    <!-- XxxxxxxXXXX___xxxxxxxxx  -->
+    <aside></aside>
+
+    <!-- XxxxxxxXXXX___xxxxxxxxx  -->
+    <footer class="centroTexto" id="footerMarcao">
+        <div class="centralizarTextoVerticalPai">
+            <div class="centralizarTextoVerticalFilho">
+                Feito por Lucas Marcão - 2024.
+            </div>
+        </div>
+    </footer>
+
+    <!-- XxxxxxxXXXX___xxxxxxxxx  -->
+    <script src="../js/main.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/style.js"></script>
+    <script src="../public/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- ESSE NÃO POHA
      SÓ O BUNDLE (APENAS)
     <script src="../public/bootstrap/js/bootstrap.js"></script> -->
-        <script src="../js/others/toasts.js"></script>
-    </body>
+    <script src="../js/others/toasts.js"></script>
+</body>
+
 </html>

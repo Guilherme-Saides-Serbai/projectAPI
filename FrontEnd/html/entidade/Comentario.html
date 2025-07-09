@@ -60,9 +60,9 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
                     <button class="btn btn-outline-success" type="submit">
-                        Search
+                        Buscar
                     </button>
                 </form>
             </div>
@@ -77,50 +77,93 @@
             <div id="errorDireto" class="alert alert-danger margemVertical centro"></div>
 
             <!-- Formulário para inserir comentário -->
-            <div class="form-section">
-                <h3>Inserir Comentário</h3>
-                <input id="postagemIdI" type="number" placeholder="ID da Postagem" required />
-                <input id="userIdI" type="number" placeholder="ID do Usuário" required />
-                <textarea id="textoComentarioI" placeholder="Texto do Comentário" required></textarea>
-                <button id="btnInserirComentario">Inserir</button>
+            <div class="form-section bordabasica">
+                <h3 class="margemVertical centro">Inserir Comentário</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="centro margemVertical">
+                            <input class="form-control col-10" id="postagemIdI" type="number"
+                                placeholder="ID da Postagem" min="0" max="99999" step="1" required />
+                        </div>
+                        <div class="centro margemVertical">
+                            <input class="form-control col-10" id="userIdI" type="number" placeholder="ID do Usuário"
+                                min="0" max="99999" step="1" required />
+                        </div>
+                        <div class="centro margemVertical">
+                            <textarea class="form-control col-10" id="textoComentarioI"
+                                placeholder="Texto do Comentário" minlength="2" maxlength="120" required></textarea>
+                        </div>
+                        <div class="centro margemVertical">
+                            <button class="col-8 btn btn-success" id="btnInserirComentario">Inserir</button>
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
             <!-- Formulário para atualizar comentário -->
-            <div class="form-section">
-                <h3>Atualizar Comentário</h3>
-                <input id="comentarioIdU" type="number" placeholder="ID do Comentário" required />
-                <textarea id="textoComentarioU" placeholder="Novo Texto do Comentário" required></textarea>
-                <button id="btnAlterarComentario">Alterar</button>
+            <div class="form-section bordabasica">
+                <h3 class="margemVertical centro">Atualizar Comentário</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="centro margemVertical">
+                            <input class="form-control col-10" id="comentarioIdU" type="number"
+                                placeholder="ID do Comentário" required />
+                        </div>
+                        <div class="centro margemVertical">
+                            <textarea class="form-control col-10" id="textoComentarioU"
+                                placeholder="Novo Texto do Comentário" required></textarea>
+                        </div>
+                        <div class="centro margemVertical">
+                            <button class="col-8 btn btn-warning" id="btnAlterarComentario">Alterar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Lista de comentários -->
-            <div class="form-section">
-                <h3>Lista de Comentários</h3>
-                <table id="tabelaComentarios">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>ID Postagem</th>
-                            <th>ID Usuário</th>
-                            <th>Texto</th>
-                            <th>Data</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+            <div class="form-section bordabasica">
+                <h3 class="margemVertical centro">Lista de Comentários</h3>
+                <div class="centroPcBlockCelular margemVertical">
+                    <table id="tabelaComentarios">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>ID Postagem</th>
+                                <th>ID Usuário</th>
+                                <th>Texto</th>
+                                <th>Data Inserção</th>
+                                <th>Data Alterção</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- Buscar comentário por ID -->
-            <div class="form-section">
-                <h3>Buscar Comentário por ID</h3>
-                <input id="comentarioIdS" type="number" placeholder="ID do Comentário" />
-                <button id="btnBuscarComentario">Buscar</button>
-                <div id="resultadoBuscaComentario"></div>
+            <div class="form-section bordabasica">
+                <h3 class="margemVertical centro">Buscar Comentário por ID</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="centro margemVertical">
+                            <input class="form-control col-10" id="comentarioIdS" type="number"
+                                placeholder="ID do Comentário" />
+                        </div>
+                        <div class="centro margemVertical">
+                            <button class="col-8 btn btn-primary" id="btnBuscarComentario">Buscar</button>
+                        </div>
+                        <div class="centro margemVertical">
+                            <div class="col-10 alert alert-primary" id="resultadoBuscaComentario"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Lista para exclusão de comentários -->
-            <div class="form-section">
-                <h3>Excluir Comentários</h3>
+            <div class="form-section bordabasica">
+                <h3 class="margemVertical centro">Excluir Comentários</h3>
                 <div id="listaComentarioExcluir" class="centro margemVertical"></div>
             </div>
         </div>
@@ -148,7 +191,7 @@
 
         <div class="centro margemVertical">
             <a href="../../html/entidade/User.html" class="botaoTabelaEsquerda btn">
-                Acessar Usuarios xxx
+                Acessar Usuarios
             </a>
         </div>
 

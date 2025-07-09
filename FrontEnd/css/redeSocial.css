@@ -283,6 +283,13 @@ h1 {
     color: #000a90;
 }
 
+/* crud itens funcional */
+.bordabasica {
+    padding: 5px;
+    margin: 10px 0;
+    border: 2px solid black;
+    overflow-x: auto;
+}
 table {
     border: 1px solid black;
 }
@@ -293,9 +300,12 @@ table {
 
 th {
     border: 1px solid black;
+    padding: 4px;
 }
 td {
+    text-align: center;
     border: 1px solid black;
+    padding: 4px;
 }
 
 /* ITENS DE CONTEUDO POST */
